@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>Water/Wastewater Engineering Calculators</title>
+		<link rel="stylesheet" href="main.css">
+		<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Rubik" rel="stylesheet">  
+	</head>
+
+	<body>
+		
+		<header>
+			<nav>
+				<img class="site-logo" src="tree.png" alt="site logo">
+
+				<h1 class="header-title">Water/Wastewater Engineering Calculators</h1>
+				<ul class="top-nav">
+					<li><a href="index.html">Home</a></li>
+					<li><a href="about.html">About</a></li>
+					<li><a href="resources.html">Resources</a></li>
+					<li><a href="contact.html">Contact</a></li>
+				</ul>
+
+			</nav>
+		</header>
+		
+		<aside class="side-nav-container container col-1-3">
+			<nav>
+				<h2 class="side-title">Calculators</h2>
+				<ul class="side-nav">
+					<li><a href="velocity.html">Pipe Velocity</a></li>
+					<li><a href="hazen.html">Pipe Head Loss (Hazen-Williams Equation)</a></li>
+					<li><a href="darcy.html">Pipe Head Loss (Darcy-Weisbach Equation)</a></li>
+					<li><a href="manning.html">Open Channel Flow (Manning Equation)</a></li>
+					<li><a href="reynolds.html">Reynolds Number</a></li>
+					<li><a href="factor.html">Froude Number</a></li>
+				</ul>
+			</nav>
+		</aside>
+
+		<section class="container col-2-3 calculator">
+			<div>
+				<form name="velocity">
+					<fieldset>
+						<legend>Pipe Velocity Calculator</legend>
+
+						<br>
+						
+						<label>
+							Pipe Diameter:
+							<input type="text" name="diameter" placeholder="i.e. 2" onchange="buttonRecalculate()" required></input>
+							<select name="diameterUnits" onchange="buttonRecalculate()">
+								<option value="in" selected>in</option>
+								<option value="m">m</option>
+							</select>
+						</label>
+						
+						<br>
+						
+						<label>
+							Fluid Flowrate:
+							<input type="text" name="flowrate" placeholder="i.e.3" onchange="buttonRecalculate()" required></input>
+							<select name="flowUnits" onchange="buttonRecalculate()">
+								<option name="cfs" value="cfs" selected>cfs</option>
+								<option name="gpm" value="gpm">gpm</option>
+								<option name="cms" value="cms">m3/s</option>
+							</select>
+						</label>
+
+						<br>
+						<br>
+					
+						<label>
+							Fluid Velocity:
+							<input class="calculated" type="text" name="calculatedVelocity" value="" readonly></input>
+							<select name="velocityUnits" onchange="buttonRecalculate()">
+								<option name="fps" value="fps" selected>ft/s</option>
+								<option name="mps" value="mps">m/s</option>
+							</select>
+						</label>
+
+						<br>
+
+						<input id="calc-button" type="button" name="submit" value="Calculate" onclick="calculateVelocity()"></input>
+						<input type="button" name="clear" value="Clear" onclick="clearVelocity()"></input>
+
+					</fieldset>
+				</form>
+
+			</div>
+		</section>
+
+		<footer>
+		</footer>
+
+		<script type="text/javascript" src="script.js"></script> 
+	</body>
+</html>

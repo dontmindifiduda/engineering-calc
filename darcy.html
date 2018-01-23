@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>Water/Wastewater Engineering Calculators</title>
+		<link rel="stylesheet" href="main.css">
+		<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet"> 
+	</head>
+
+	<body>
+		
+		<header>
+			<nav>
+				<img class="site-logo" src="tree.png" alt="site logo">
+
+				<h1 class="header-title">Water/Wastewater Engineering Calculators</h1>
+				<ul class="top-nav">
+					<li><a href="index.html">Home</a></li>
+					<li><a href="about.html">About</a></li>
+					<li><a href="resources.html">Resources</a></li>
+					<li><a href="contact.html">Contact</a></li>
+				</ul>
+
+			</nav>
+		</header>
+		
+		<aside class="side-nav-container container col-1-3">
+			<nav>
+				<h2 class="side-title">Calculators</h2>
+				<ul class="side-nav">
+					<li><a href="velocity.html">Pipe Velocity</a></li>
+					<li><a href="hazen.html">Pipe Head Loss (Hazen-Williams Equation)</a></li>
+					<li><a href="darcy.html">Pipe Head Loss (Darcy-Weisbach Equation)</a></li>
+					<li><a href="manning.html">Open Channel Flow (Manning Equation)</a></li>
+					<li><a href="reynolds.html">Reynolds Number</a></li>
+					<li><a href="factor.html">Froude Number</a></li>
+				</ul>
+			</nav>
+		</aside>
+
+		<section class="container col-2-3 calculator">
+			<div class="calculator-box">
+				<form name="darcy">
+					<fieldset>
+						<legend>Head Loss Calculator (Darcy-Weisbach Equation)</legend>
+					
+						<label>
+							Pipe Diameter:
+							<input type="text" name="diameter" placeholder="i.e. 2" onchange="buttonRecalculate()" required></input>
+							<select class="unit-selector" name="diameterUnits" onchange="buttonRecalculate()">
+								<option value="in" selected>in</option>
+								<option value="m">m</option>
+							</select>
+						</label>
+						
+						<br>
+						
+						<label>
+							Fluid Velocity:
+							<input type="text" name="velocity" placeholder="i.e.3" onchange="buttonRecalculate()" required></input>
+							<select  class="unit-selector" name="velocityUnits" onchange="buttonRecalculate()">
+								<option name="fps" value="fps" selected>ft/s</option>
+								<option name="mps" value="mps">m/s</option>
+							</select>
+						</label>
+
+						<br>
+
+						<label>
+							Pipe Length:
+							<input type="text" name="pipeLength" placeholder="i.e.3" onchange="buttonRecalculate()" required></input>
+							<select  class="unit-selector" name="pipeLengthUnits" onchange="buttonRecalculate()">
+								<option name="feet-length" value="ft" selected>ft</option>
+								<option name="miles-length" value="mi">mi</option>
+								<option name="meters-length" value="m">m</option>
+							</select>
+						</label>
+
+						<br>
+					
+						<label>
+							Darcy Friction Factor:
+							<input type="text" name="factor" value="" onchange="buttonRecalculate()"></input> 
+							<input id="modalButton" value="Calculate Friction Factor" name="factormodal" onclick="modalActivate()"></input>
+						</label>
+
+						<br>
+
+						<label>
+							Headloss:
+							<input class="calculated" type="text" name="calculatedHeadloss" readonly></input>
+							<select  class="unit-selector" name="headlossUnits" onchange="buttonRecalculate()">
+								<option value="ft" selected>ft</option>
+								<option value="in">in</option>
+								<option value="m">m</option>
+							</select>
+						</label>
+
+						<br>
+
+						<input id="calc-button" type="button" name="submit" value="Calculate" onclick="calculateDarcy()"></input>
+						<input type="button" name="clear" value="Clear" onclick="clearDarcy()"></input>
+
+					</fieldset>
+				</form>
+
+
+			<div id="calc-modal" class="modal">
+				<div class="modal-interior">
+					<span class="close">&times;</span>
+					<div class="modal-center">
+						<form name="factorlaminar">
+							<fieldset>
+								<legend>Darcy Friction Factor Calculator (Laminar Flow)</legend>
+
+								<label>
+									Reynolds Number:
+									<input type="text" name="reynolds" placeholder="i.e.3" onchange="buttonRecalculate()" required></input>
+								</label>
+
+								<br>
+							
+								<label>
+									Darcy Friction Factor:
+									<input class="calculated" type="text" name="calculatedFactor" value="" readonly></input>
+									<input type="button" name="insertFactorLaminar" value="Insert Value" onclick="insertFactor()"></input>
+								</label>
+
+								<br>
+							
+								<input id="calc-button" type="button" name="submit" value="Calculate" onclick="calculateFactorLaminar()"></input>
+								<input type="button" name="clear" value="Clear" onclick="clearFactorLaminar()"></input>
+
+							</fieldset>
+						</form>
+
+						<br>
+						<br>
+
+						<form name="factorturbulent">
+							<fieldset>
+								<legend>Darcy Friction Factor Calculator (Turbulent Flow)</legend>
+							
+								<label>
+									Pipe Diameter:
+									<input type="text" name="diameter" placeholder="i.e. 2" onchange="buttonRecalculate()" required></input>
+									<select class="unit-selector" name="diameterUnits" onchange="buttonRecalculate()">
+										<option value="in" selected>in</option>
+										<option value="m">m</option>
+									</select>
+								</label>
+								
+								<br>
+								
+								<label>
+									Roughness:
+									<input type="text" name="roughness" placeholder="i.e.3" onchange="buttonRecalculate()" required></input>
+								</label>
+
+								<br>
+
+								<label>
+									Reynolds Number:
+									<input type="text" name="reynolds" placeholder="i.e.3" onchange="buttonRecalculate()" required></input>
+								</label>
+
+								<br>
+							
+								<label>
+									Darcy Friction Factor:
+									<input class="calculated" type="text" name="calculatedFactor" value="0" readonly></input>
+									<input type="button" name="insertFactorTurbulent" value="Insert Value" onclick="insertFactor()"></input>
+								</label>
+
+								<br>
+
+								<input id="calc-button" type="button" name="submit" value="Calculate" onclick="calculateFactorTurbulent()"></input>
+								<input type="button" name="clear" value="Clear" onclick="clearFactorTurbulent()"></input>
+
+							</fieldset>
+						</form>
+					</div>
+				</div>
+			</div>
+
+			</div>
+
+			<br>
+
+			<div class="moody">
+				<p><a href="https://commons.wikimedia.org/wiki/File:Moody_EN.svg#/media/File:Moody_EN.svg"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Moody_EN.svg/1200px-Moody_EN.svg.png" alt="Moody EN.svg"></a><br>By Original diagram: S Beck and R Collins, University of Sheffield (<a href="https://en.wikipedia.org/wiki/User:Donebythesecondlaw" class="extiw" title="wikipedia:User:Donebythesecondlaw">Donebythesecondlaw</a> at <a href="https://en.wikipedia.org/wiki/" class="extiw" title="wikipedia:">English Wikipedia</a>)
+	Conversion to SVG: <a href="//commons.wikimedia.org/w/index.php?title=User:Marc.derumaux&amp;action=edit&amp;redlink=1" class="new" title="User:Marc.derumaux (page does not exist)">Marc.derumaux</a> - <a href="//commons.wikimedia.org/wiki/File:Moody_diagram.jpg" title="File:Moody diagram.jpg">File:Moody_diagram.jpg</a>, <a href="https://creativecommons.org/licenses/by-sa/4.0" title="Creative Commons Attribution-Share Alike 4.0">CC BY-SA 4.0</a>, <a href="https://commons.wikimedia.org/w/index.php?curid=52681200">Link</a></p>
+			</div>
+
+		</section>
+
+		<footer>
+		</footer>
+
+		<script type="text/javascript" src="script.js"></script> 
+	</body>
+</html>

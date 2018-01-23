@@ -1,0 +1,338 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+	font-family: "Source Sans Pro", sans-serif;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/* GRID */
+
+*:before,
+*:after {
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.container,
+.grid {
+  margin: 0 auto;
+  width: 960px;
+}
+
+.container {
+  padding-top: 30px;
+}
+
+.col-1-3 {
+  width: 20%;
+}
+
+.col-2-3 {
+  width: 70%;
+}
+
+.col-1-3, 
+.col-2-3 {
+  display: inline-block;
+  vertical-align: top;
+}
+
+.grid,
+.col-1-3,
+.col-2-3 {
+  padding-left: 40px;
+  padding-right: 15px;
+}
+
+/* SITE LOGO */
+
+.site-logo {
+	height: 100px;
+	margin: 20px 20px 20px 40px;
+}
+
+/* TOP NAVIGATION */
+
+.top-nav {
+	margin: 50px 40px 0 0; 
+	float: right;
+	display: table;
+	border-collapse: collapse;
+}
+
+ul.top-nav > li {
+	display: table-cell;
+	width: 100px;
+	height: 40px;
+	border: 2px solid black;
+	text-align: center;
+	padding: 5px;
+	vertical-align: middle;
+	background-color: #9fff99;
+}
+
+ul.top-nav > li a {
+	text-decoration: none;
+	font-family: "Rubik", sans-serif;
+	font-size: 18px;
+}
+
+/* HEADER */
+
+header {
+	width: 100%;
+	background-color: #498dfc;
+}
+
+.header-title {
+	display: inline-block;
+	position: absolute;
+	margin: 50px 0 0 20px;
+	color: white;
+}
+
+/* SIDE CALCULATOR NAVIGATION */
+
+.side-title {
+	font-size: 32px;
+	text-align: left;
+}
+
+.side-nav-container {
+	position: absolute;
+	float: left;
+	width: 20%;
+	height: 100%;
+	background-color: #9fff99;
+}
+
+.side-nav {
+	margin-top: 40px;
+	margin-left: 20px;
+	font-size: 18px;
+}
+
+ul.side-nav > li {
+	margin-top: 10px;
+}
+
+
+/* CALCULATOR */
+
+.calculator {
+	float: right;
+}
+
+.calculator-box {
+	display: inline-block;
+	float: left;
+}
+
+.info-box {
+	display: inline-block;
+	float: right;
+	width: 40%;
+	padding-right: 15%;
+} 
+
+.calc-title {
+	margin-bottom: 40px;
+}
+
+.info-title {
+	text-align: center;
+}
+
+.calculated {
+	background-color: #e2fcdb;
+}
+
+
+/* HEADINGS */
+
+h1 {
+	font-size: 42px;
+}
+
+h2 {
+	font-size: 32px;
+}
+
+h3 {
+	font-size: 20px;
+	padding-bottom: 10px;
+}
+
+/* TABLE */
+
+fieldset {
+	width: 500px;
+	border: 2px solid black;
+	border-radius: 5px;
+	padding: 25px;
+	display: inline-block;
+	box-shadow: -3px 3px 3px gray;
+}
+
+.unit-selector {
+	float: right;
+}
+
+label {
+	margin-bottom: 10px;
+	display: inline-block;
+}
+
+.datatable {
+	border: 2px solid black;
+	position: relative;
+	left: 50%;
+	transform: translateX(-50%);
+	box-shadow: -3px 3px 3px gray;
+}
+
+.material-col {
+	width: 300px;
+}
+
+.coefficient-col {
+	width: 100px;
+}
+
+.material {
+	text-align: left;
+	padding-left: 20px;
+}
+
+td {
+	padding: 5px 0 5px 0;
+	border: 1px solid gray;
+	text-align: center;
+	font-size: 14px;
+}
+
+th {
+	font-size: 18px;
+	padding: 10px 0 10px 0;
+	border: 1px solid gray;
+}
+
+legend {
+	font-size: 20px;
+}
+
+.homebox {
+	padding: 40px 80px 40px 80px;
+	margin: 100px 200px 100px 200px;
+	border: 2px solid black;
+}
+
+.homebox ul > li {
+	padding-left: 20px;
+	line-height: 30px;
+}
+
+.moody {
+	margin-top: 300px;
+}
+
+.equation-box {
+	height: 200px;
+}
+
+.equation {
+	font-size: 18px;
+}
+
+.temperature-col, .viscosity-col, .density-col {
+	width: 150px;
+}
+
+
+/* Modals */
+
+.modal {
+	display: none;
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	z-index: 3;
+	background-color: rgba(0,0,0,0.5);
+	top: 0;
+	left: 0;
+	overflow: auto;
+}
+
+.modal-interior {
+	position: fixed;
+	width: 40%;
+	height: 60%;
+	margin: 10% 30%;
+	background-color: white;
+	z-index: 4;
+	padding: 20px;
+	border: 5px solid black;
+	border-radius: 5px;
+}
+
+.close {
+	float: right;
+	color: black;
+	font-size: 48px;
+	color: black;
+	cursor: pointer;
+	text-align: center;
+}
+
+#modalButton {
+	cursor: pointer;
+}
+
+.modal-center {
+	margin-top: 10%;
+	margin-left: 12%;
+}

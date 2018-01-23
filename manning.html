@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>Water/Wastewater Engineering Calculators</title>
+		<link rel="stylesheet" href="main.css">
+		<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet"> 
+	</head>
+
+	<body>
+		
+		<header>
+			<nav>
+				<img class="site-logo" src="http://freedesignfile.com/upload/2016/11/Abstract-financial-document-Stock-Photo.jpg" alt="site logo">
+
+				<h1 class="header-title">Water/Wastewater Engineering Calculators</h1>
+				<ul class="top-nav">
+					<li><a href="index.html">Home</a></li>
+					<li><a href="about.html">About</a></li>
+					<li><a href="resources.html">Resources</a></li>
+					<li><a href="contact.html">Contact</a></li>
+				</ul>
+
+			</nav>
+		</header>
+		
+		<aside class="side-nav-container container col-1-3">
+			<nav>
+				<h2 class="side-title">Calculators</h2>
+				<ul class="side-nav">
+					<li><a href="velocity.html">Pipe Velocity</a></li>
+					<li><a href="hazen.html">Pipe Head Loss (Hazen-Williams Equation)</a></li>
+					<li><a href="darcy.html">Pipe Head Loss (Darcy-Weisbach Equation)</a></li>
+					<li><a href="manning.html">Open Channel Flow (Manning Equation)</a></li>
+					<li><a href="reynolds.html">Reynolds Number</a></li>
+					<li><a href="froude.html">Froude Number</a></li>
+				</ul>
+			</nav>
+		</aside>
+
+		<section class="container col-2-3 calculator">
+			<div class="calculator-box">
+				<form name="hazen">
+					<fieldset>
+						<legend>Hazen Williams Calculator</legend>
+					
+						<label>
+							Pipe Diameter:
+							<input type="text" name="diameter" placeholder="i.e. 2" onchange="buttonRecalculate()" required></input>
+							<select class="unit-selector" name="diameterUnits" onchange="buttonRecalculate()">
+								<option value="inches" selected>in</option>
+								<option value="meters">m</option>
+							</select>
+						</label>
+						
+						<br>
+						
+						<label>
+							Fluid Flowrate:
+							<input type="text" name="flowrate" placeholder="i.e.3" onchange="buttonRecalculate()" required></input>
+							<select  class="unit-selector" name="flowUnits" onchange="buttonRecalculate()">
+								<option name="cfs" value="cfs" selected>cfs</option>
+								<option name="gpm" value="gpm">gpm</option>
+								<option name="cms" value="cms">m3/s</option>
+							</select>
+						</label>
+
+						<br>
+
+						<label>
+							Pipe Length:
+							<input type="text" name="pipeLength" placeholder="i.e.3" onchange="buttonRecalculate()" required></input>
+							<select  class="unit-selector" name="pipeLengthUnits" onchange="buttonRecalculate()">
+								<option name="feet-length" value="feet" selected>ft</option>
+								<option name="miles-length" value="miles">mi</option>
+								<option name="meters-length" value="meters">m</option>
+							</select>
+						</label>
+
+						<br>
+					
+						<label>
+							Hazen Williams Coefficient:
+							<input type="text" name="coefficient" value="" onchange="buttonRecalculate()"></input>
+						</label>
+
+						<br>
+
+						<label>
+							Headloss:
+							<input class="calculated" type="text" name="calculatedHeadloss" value="" readonly></input>
+							<select  class="unit-selector" name="headlossUnits" onchange="buttonRecalculate()">
+								<option value="feet" selected>ft</option>
+								<option value="inches">in</option>
+								<option value="meters">m</option>
+							</select>
+						</label>
+
+						<br>
+
+						<input id="calc-button" type="button" name="submit" value="Calculate" onclick="calculateHazen()"></input>
+						<input type="button" name="clear" value="Clear" onclick="clearHazen()"></input>
+
+					</fieldset>
+				</form>
+
+			</div>
+
+			<div class="info-box">
+				<h3 class="info-title">Hazen Williams Coefficients</h3>
+				<table id="hazen-coefficients">
+					<tr>
+						<th class="material-col" scope="col">Pipe Material</th>
+						<th class="coefficient-col" scope="col">High</th>
+						<th class="coefficient-col" scope="col">Low</th>
+					</tr>
+					<tr>
+						<td class="material">Asbestos Cement</td>
+						<td>140</td>
+						<td>150</td>
+					</tr>
+					<tr>
+						<td class="material">Brass</td>
+						<td>120</td>
+						<td>150</td>
+					</tr>
+					<tr>
+						<td class="material">Black Steel (Dry Systems)</td>
+						<td>100</td>
+						<td>130</td>
+					</tr>
+					<tr>
+						<td class="material">Black Steel (Wet Systems)</td>
+						<td>120</td>
+						<td>130</td>
+					</tr>
+					<tr>
+						<td class="material">Cast Iron - New Unlined</td>
+						<td>100</td>
+						<td>130</td>
+					</tr>
+					<tr>
+						<td class="material">Cast Iron - 10 Years Old</td>
+						<td>75</td>
+						<td>105</td>
+					</tr>
+					<tr>
+						<td class="material">Cast Iron - 15 Years Old</td>
+						<td>60</td>
+						<td>100</td>
+					</tr>
+					<tr>
+						<td class="material">Cast Iron - 20 Years Old</td>
+						<td>55</td>
+						<td>95</td>
+					</tr>
+					<tr>
+						<td class="material">Cast Iron - 30 Years Old</td>
+						<td>45</td>
+						<td>85</td>
+					</tr>
+					<tr>
+						<td class="material">Cast Iron - 50 Years Old</td>
+						<td>40</td>
+						<td>80</td>
+					</tr>
+					<tr>
+						<td class="material">Cast Iron - Bitumen-Lined</td>
+						<td colspan="2">140</td>
+					</tr>
+					<tr>
+						<td class="material">Cast Iron - Cement-Lined</td>
+						<td collspan="2">140</td>
+					</tr>
+					<tr>
+						<td class="material">Concrete</td>
+						<td>85</td>
+						<td>140</td>
+					</tr>
+					<tr>
+						<td class="material">Copper</td>
+						<td>120</td>
+						<td>150</td>
+					</tr>
+					<tr>
+						<td class="material">Fiberglass Pipe</td>
+						<td>150</td>
+						<td>160</td>
+					</tr>
+					<tr>
+						<td class="material">Fire Hose (Rubber)</td>
+						<td>150</td>
+						<td>160</td>
+					</tr>
+					<tr>
+						<td class="material">Galvanized Steel</td>
+						<td colspan="2">120</td>
+					</tr>
+					<tr>
+						<td class="material">Lead</td>
+						<td>130</td>
+						<td>150</td>
+					</tr>
+					<tr>
+						<td class="material">Polyethylene</td>
+						<td colspan="2">150</td>
+					</tr>
+					<tr>
+						<td class="material">PVC and Plastic Pipe</td>
+						<td colspan="2">150</td>
+					</tr>
+					<tr>
+						<td class="material">Stainless Steel</td>
+						<td colspan="2">150</td>
+					</tr>
+					<tr>
+						<td class="material">Steel - New and Unlined</td>
+						<td>140</td>
+						<td>150</td>
+					</tr>
+					<tr>
+						<td class="material">Steel - Welded and Seamless</td>
+						<td>100</td>
+						<td>130</td>
+					</tr>
+					<tr>
+						<td class="material">Vitrified Clays</td>
+						<td colspan="2">110</td>
+					</tr>
+					<tr>
+						<td class="material">Wood</td>
+						<td colspan="2">120</td>
+					</tr>
+					<tr>
+						<td class="material">Clay - New Rivted Steel</td>
+						<td colspan="2">110</td>
+					</tr>
+				</table>
+			</div>
+
+		</section>
+
+		<footer>
+		</footer>
+
+		<script type="text/javascript" src="script.js"></script> 
+	</body>
+</html>
