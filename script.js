@@ -604,7 +604,17 @@ function calculateFactorTurbulent() {
 
 	var roughness = document.factorturbulent.roughness.value;
 	
-	var reynolds = document.factorturbulent.reynolds.value;
+	var velocity = document.factorturbulent.velocity.value;
+	var velocityUnits = document.factorturbulent.velocityUnits.value;
+
+	var viscosity = document.factorturbulent.viscosity.value;
+
+	var density = document.factorturbulent.density.value;
+
+	diameter = convertLength(diameter, diameterUnits, "ft");
+	velocity = convertVelocity(velocity, velocityUnits, "fps");
+
+	var reynolds = diameter * velocity * density / viscosity;
 
 	var highGuess = 1;
 	var lowGuess = 0.0001;

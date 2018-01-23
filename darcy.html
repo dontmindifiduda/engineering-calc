@@ -110,14 +110,40 @@
 			<div id="calc-modal" class="modal">
 				<div class="modal-interior">
 					<span class="close">&times;</span>
-					<div class="modal-center">
+					<div class="modal-calcs">
 						<form name="factorlaminar">
 							<fieldset>
 								<legend>Darcy Friction Factor Calculator (Laminar Flow)</legend>
 
 								<label>
-									Reynolds Number:
-									<input type="text" name="reynolds" placeholder="i.e.3" onchange="buttonRecalculate()" required></input>
+									Fluid Velocity:
+									<input type="text" name="velocity" value=""></input>
+									<select name="velocityUnits" onchange="buttonRecalculate()">
+										<option name="fps" value="fps" selected>ft/s</option>
+										<option name="mps" value="mps">m/s</option>
+									</select>
+								</label>
+
+								<br>
+					
+								<label>
+									Fluid Density:
+									<input type="text" name="density" placeholder="i.e.4" onchange="buttonRecalculate()"></input>
+									<select name="densityUnits" onchange="buttonRecalculate()">
+										<option name="kg_per_m3" value="kg_per_m3" selected>kg/m3</option>
+										<option name="lb_per_ft3" value="lb_per_ft3">lb/ft3</option>
+									</select>
+								</label>
+
+								<br>
+
+								<label>
+									Absolute Viscosity:
+									<input type="text" name="viscosity" placeholder="i.e.4" onchange="buttonRecalculate()"></input>
+									<select name="viscosityUnits" onchange="buttonRecalculate()">
+										<option name="metric" value="metric" >kg/m3</option>
+										<option name="imperial" value="imperial" selected>lb/ft3</option>
+									</select>
 								</label>
 
 								<br>
@@ -162,9 +188,37 @@
 								<br>
 
 								<label>
-									Reynolds Number:
-									<input type="text" name="reynolds" placeholder="i.e.3" onchange="buttonRecalculate()" required></input>
+									Fluid Velocity:
+									<input type="text" name="velocity" value=""></input>
+									<select name="velocityUnits" onchange="buttonRecalculate()">
+										<option name="fps" value="fps" selected>ft/s</option>
+										<option name="mps" value="mps">m/s</option>
+									</select>
 								</label>
+
+								<br>
+					
+								<label>
+									Fluid Density:
+									<input type="text" name="density" placeholder="i.e.4" onchange="buttonRecalculate()"></input>
+									<select name="densityUnits" onchange="buttonRecalculate()">
+										<option name="kg_per_m3" value="kg_per_m3" selected>kg/m3</option>
+										<option name="lb_per_ft3" value="lb_per_ft3">lb/ft3</option>
+									</select>
+								</label>
+
+								<br>
+
+								<label>
+									Absolute Viscosity:
+									<input type="text" name="viscosity" placeholder="i.e.4" onchange="buttonRecalculate()"></input>
+									<select name="viscosityUnits" onchange="buttonRecalculate()">
+										<option name="metric" value="metric">kg/m3</option>
+										<option name="imperial" value="imperial" selected>lb/ft3</option>
+									</select>
+								</label>
+
+								<br>
 
 								<br>
 							
@@ -181,6 +235,180 @@
 
 							</fieldset>
 						</form>
+					</div>
+
+					<div class="info-box">
+						<h3 class="info-title">Properties of Water (Metric)</h3>
+						<table class="datatable">
+							<tr>
+								<th class="temperature-col" scope="col">Temperature (&deg;C)</th>
+								<th class="density-col" scope="col">Density (g/cm<sup>3</sup>)</th>
+								<th class="viscosity-col" scope="col">Viscosity (&mu;Pa-s)</th>
+							</tr>
+							<tr>
+								<td class="temperature">0</td>
+								<td>0.99984</td>
+								<td>1793</td>
+							</tr>
+							<tr>
+								<td class="temperature">10</td>
+								<td>0.99970</td>
+								<td>1307</td>
+							</tr>
+							<tr>
+								<td class="temperature">20</td>
+								<td>0.99821</td>
+								<td>1002</td>
+							</tr>
+							<tr>
+								<td class="temperature">30</td>
+								<td>0.99565</td>
+								<td>797.7</td>
+							</tr>
+							<tr>
+								<td class="temperature">40</td>
+								<td>0.99222</td>
+								<td>653.2</td>
+							</tr>
+							<tr>
+								<td class="temperature">50</td>
+								<td>0.98803</td>
+								<td>547.0</td>
+							</tr>
+							<tr>
+								<td class="temperature">60</td>
+								<td>0.98320</td>
+								<td>466.5</td>
+							</tr>
+							<tr>
+								<td class="temperature">70</td>
+								<td>0.97778</td>
+								<td>404.0</td>
+							</tr>
+							<tr>
+								<td class="temperature">80</td>
+								<td>0.97182</td>
+								<td>354.4</td>
+							</tr>
+							<tr>
+								<td class="temperature">90</td>
+								<td>0.96535</td>
+								<td>314.5</td>
+							</tr>
+							<tr>
+								<td class="temperature">100</td>
+								<td>0.95840</td>
+								<td>281.8</td>
+							</tr>
+						</table>
+						<h4 class="info-title">Source:  </h4>
+
+						<br>
+
+							<h3 class="info-title">Properties of Water (Customary U.S. Units)</h3>
+							<table class="datatable">
+								<tr>
+									<th class="temperature-col" scope="col">Temperature (&deg;F)</th>
+									<th class="density-col" scope="col">Density (lb/ft<sup>3</sup>)</th>
+									<th class="viscosity-col" scope="col">Viscosity (lb-sec/ft)</th>
+								</tr>
+								<tr>
+									<td class="temperature">32</td>
+									<td>62.42</td>
+									<td>0.00003746</td>
+								</tr>
+								<tr>
+									<td class="temperature">40</td>
+									<td>62.43</td>
+									<td>0.00003229</td>
+								</tr>
+								<tr>
+									<td class="temperature">50</td>
+									<td>62.41</td>
+									<td>0.00002735</td>
+								</tr>
+								<tr>
+									<td class="temperature">60</td>
+									<td>62.37</td>
+									<td>0.00002359</td>
+								</tr>
+								<tr>
+									<td class="temperature">70</td>
+									<td>62.30</td>
+									<td>0.00002050</td>
+								</tr>
+								<tr>
+									<td class="temperature">80</td>
+									<td>62.22</td>
+									<td>0.00001799</td>
+								</tr>
+								<tr>
+									<td class="temperature">90</td>
+									<td>62.11</td>
+									<td>0.00001595</td>
+								</tr>
+								<tr>
+									<td class="temperature">100</td>
+									<td>62.00</td>
+									<td>0.00001424</td>
+								</tr>
+								<tr>
+									<td class="temperature">110</td>
+									<td>61.86</td>
+									<td>0.00001284</td>
+								</tr>
+								<tr>
+									<td class="temperature">120</td>
+									<td>61.71</td>
+									<td>0.00001168</td>
+								</tr>
+								<tr>
+									<td class="temperature">130</td>
+									<td>61.55</td>
+									<td>0.00001069</td>
+								</tr>
+								<tr>
+									<td class="temperature">140</td>
+									<td>61.38</td>
+									<td>0.00000981</td>
+								</tr>
+								<tr>
+									<td class="temperature">150</td>
+									<td>61.20</td>
+									<td>0.00000905</td>
+								</tr>
+								<tr>
+									<td class="temperature">160</td>
+									<td>61.00</td>
+									<td>0.00000838</td>
+								</tr>
+								<tr>
+									<td class="temperature">170</td>
+									<td>60.80</td>
+									<td>0.00000780</td>
+								</tr>
+								<tr>
+									<td class="temperature">180</td>
+									<td>60.58</td>
+									<td>0.00000726</td>
+								</tr>
+								<tr>
+									<td class="temperature">190</td>
+									<td>60.36</td>
+									<td>0.00000678</td>
+								</tr>
+								<tr>
+									<td class="temperature">200</td>
+									<td>60.12</td>
+									<td>0.00000637</td>
+								</tr>
+								<tr>
+									<td class="temperature">212</td>
+									<td>59.83</td>
+									<td>0.00000593</td>
+								</tr>
+							</table>
+							<h4 class="info-title">Source:  </h4>
 					</div>
 				</div>
 			</div>

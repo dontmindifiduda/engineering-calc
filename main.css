@@ -309,9 +309,9 @@ legend {
 
 .modal-interior {
 	position: fixed;
-	width: 40%;
-	height: 60%;
-	margin: 10% 30%;
+	width: 80%;
+	height: 80%;
+	margin: 2% 8%;
 	background-color: white;
 	z-index: 4;
 	padding: 20px;
@@ -332,7 +332,6 @@ legend {
 	cursor: pointer;
 }
 
-.modal-center {
-	margin-top: 10%;
-	margin-left: 12%;
+.modal-calcs {
+	float: left;
 }
