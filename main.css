@@ -229,9 +229,6 @@ label {
 
 .datatable {
 	border: 2px solid black;
-	position: relative;
-	left: 50%;
-	transform: translateX(-50%);
 	box-shadow: -3px 3px 3px gray;
 }
 
@@ -241,6 +238,10 @@ label {
 
 .coefficient-col {
 	width: 100px;
+}
+
+.temperature-col, .viscosity-col, .density-col {
+	width: 150px;
 }
 
 .material {
@@ -280,6 +281,8 @@ legend {
 	margin-top: 300px;
 }
 
+/* EQUATION STYLING */
+
 .equation-box {
 	height: 200px;
 }
@@ -288,12 +291,8 @@ legend {
 	font-size: 18px;
 }
 
-.temperature-col, .viscosity-col, .density-col {
-	width: 150px;
-}
 
-
-/* Modals */
+/* MODALS */
 
 .modal {
 	display: none;
@@ -309,12 +308,12 @@ legend {
 
 .modal-interior {
 	position: fixed;
-	width: 80%;
+	width: 90%;
 	height: 80%;
-	margin: 2% 8%;
+	margin: 2% 4%;
 	background-color: white;
 	z-index: 4;
-	padding: 20px;
+	padding: 0px;
 	border: 5px solid black;
 	border-radius: 5px;
 }
@@ -334,4 +333,27 @@ legend {
 
 .modal-calcs {
 	float: left;
+}
+
+.modal-info {
+	display: inline-block;
+	float: right;
+	width: 62%;
+}
+
+.modal-info-left {
+	display: inline-block;
+	border: 2px solid red;
+	float: left;
+
+	height: 700px;
+}
+
+.modal-info-right {
+	display: inline-block;
+	border: 2px solid green;
+	float: right;
+
+	height: 700px;
+
 }
