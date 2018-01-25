@@ -7,7 +7,8 @@
 		<title>Water/Wastewater Engineering Calculators</title>
 		<link rel="stylesheet" href="main.css">
 		<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
-		<link href="https://fonts.googleapis.com/css?family=Rubik" rel="stylesheet">  
+		<link href="https://fonts.googleapis.com/css?family=Rubik" rel="stylesheet"> 
+		<script type="text/javascript" async src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML'></script> 
 	</head>
 
 	<body>
@@ -42,55 +43,61 @@
 		</aside>
 
 		<section class="container col-2-3 calculator">
-			<div>
+			<div class="calculator-box">
 				<form name="velocity">
 					<fieldset>
 						<legend>Pipe Velocity Calculator</legend>
 
-						<br>
-						
 						<label>
 							Pipe Diameter:
-							<input type="text" name="diameter" placeholder="i.e. 2" onchange="buttonRecalculate()" required></input>
-							<select name="diameterUnits" onchange="buttonRecalculate()">
+							<input type="text" name="diameter" placeholder="Enter Pipe Diameter" onchange="buttonRecalculate()" required></input>
+							<select class="unit-selector" name="diameterUnits" onchange="buttonRecalculate()">
 								<option value="in" selected>in</option>
 								<option value="m">m</option>
 							</select>
 						</label>
 						
-						<br>
-						
 						<label>
 							Fluid Flowrate:
-							<input type="text" name="flowrate" placeholder="i.e.3" onchange="buttonRecalculate()" required></input>
-							<select name="flowUnits" onchange="buttonRecalculate()">
+							<input type="text" name="flowrate" placeholder="Enter Fluid Flowrate" onchange="buttonRecalculate()" required></input>
+							<select class="unit-selector" name="flowUnits" onchange="buttonRecalculate()">
 								<option name="cfs" value="cfs" selected>cfs</option>
 								<option name="gpm" value="gpm">gpm</option>
 								<option name="cms" value="cms">m3/s</option>
 							</select>
 						</label>
 
-						<br>
-						<br>
-					
 						<label>
 							Fluid Velocity:
 							<input class="calculated" type="text" name="calculatedVelocity" value="" readonly></input>
-							<select name="velocityUnits" onchange="buttonRecalculate()">
+							<select class="unit-selector" name="velocityUnits" onchange="buttonRecalculate()">
 								<option name="fps" value="fps" selected>ft/s</option>
 								<option name="mps" value="mps">m/s</option>
 							</select>
 						</label>
 
-						<br>
-
-						<input id="calc-button" type="button" name="submit" value="Calculate" onclick="calculateVelocity()"></input>
-						<input type="button" name="clear" value="Clear" onclick="clearVelocity()"></input>
+						<div>
+							<input id="calc-button" type="button" name="submit" value="Calculate" onclick="calculateVelocity()"></input>
+							<input type="button" name="clear" value="Clear" onclick="clearVelocity()"></input>
+						</div>
 
 					</fieldset>
 				</form>
 
+				<h3 class="equation-title">Pipe Velocity Equation:</h3>
+				<p class="equation">
+					$$V = {4Q \over {\pi D^{2}}}$$
+					
+					where:
+				</p>
+					
+				<ul class="constant-list">
+					<li>V = Velocity</li>
+					<li>Q = Flowrate</li>
+					<li>D = Pipe Diameter</li>
+				</ul>
 			</div>
+
 		</section>
 
 		<footer>

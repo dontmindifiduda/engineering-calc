@@ -168,15 +168,15 @@ ul.side-nav > li {
 }
 
 .calculator-box {
-	display: inline-block;
+	display: block;
 	float: left;
+	margin-right: 100px;
 }
 
 .info-box {
-	display: inline-block;
 	float: right;
 	width: 40%;
-	padding-right: 15%;
+	padding-right: 10%;
 } 
 
 .calc-title {
@@ -219,7 +219,7 @@ fieldset {
 }
 
 .unit-selector {
-	float: right;
+	margin-left: 20px;
 }
 
 label {
@@ -246,7 +246,7 @@ label {
 
 .material {
 	text-align: left;
-	padding-left: 20px;
+	padding-left: 15px;
 }
 
 td {
@@ -284,7 +284,13 @@ legend {
 /* EQUATION STYLING */
 
 .equation-box {
-	height: 200px;
+	display: inline-block;
+	float: left;
+	margin-bottom: 30px;
+}
+
+.equation-box > .equation-title {
+	margin-top: 0;
 }
 
 .equation {
@@ -313,7 +319,7 @@ legend {
 	margin: 2% 4%;
 	background-color: white;
 	z-index: 4;
-	padding: 0px;
+	padding: 40px;
 	border: 5px solid black;
 	border-radius: 5px;
 }
@@ -325,11 +331,9 @@ legend {
 	color: black;
 	cursor: pointer;
 	text-align: center;
+	margin: -30px -20px 0 0;
 }
 
-#modalButton {
-	cursor: pointer;
-}
 
 .modal-calcs {
 	float: left;
@@ -343,17 +347,35 @@ legend {
 
 .modal-info-left {
 	display: inline-block;
-	border: 2px solid red;
 	float: left;
-
 	height: 700px;
 }
 
 .modal-info-right {
 	display: inline-block;
-	border: 2px solid green;
 	float: right;
-
 	height: 700px;
+	margin-right: 40px;
+}
 
+.source {
+	text-align: left;
+	margin-top: 10px;
+}
+
+.factor-button {
+	text-align: center;
+	margin-left: 20px;
+}
+
+.constant-list {
+	margin: 15px 0 0 20px;
+}
+
+.constant-list li {
+	margin-bottom: 10px;
+}
+
+.equation-title {
+	margin-top: 50px;
 }

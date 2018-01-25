@@ -405,6 +405,22 @@ function convertFlow(value, units_from, units_to) {
 }
 
 
+// Density Conversion
+
+function convertDensity(value, units_from, units_to) {
+	if (units_from === units_to) {
+		return value;
+	}
+	switch (units_from) {
+		case "metric":
+			return ;
+			break;
+		case "imperial":
+			return ;
+			break;
+	}
+}
+
 // Velocity Conversion
 
 // Convert fps to other units
@@ -479,16 +495,20 @@ function calculateVelocity() {
 
 	pipeVelocity = pipeVelocity.toFixed(2).toString();
 
-	document.velocity.calculatedVelocity.value = pipeVelocity;
+	if (isNaN(pipeVelocity)) {
+		document.velocity.calculatedVelocity.value = "Invalid Data";
+	} else {
+		document.velocity.calculatedVelocity.value = pipeVelocity;
+	}
 
 	buttonCalculated();
 
 }
 
 function clearVelocity() {
-	document.velocity.diameter.value = 0;
-	document.velocity.flowrate.value = 0;
-	document.velocity.calculatedVelocity.value = 0;
+	document.velocity.diameter.value = "";
+	document.velocity.flowrate.value = "";
+	document.velocity.calculatedVelocity.value = "";
 }
 
 // HEAD LOSS CALCULATOR - HAZEN WILLIAMS //
@@ -655,7 +675,22 @@ function clearFactorTurbulent() {
 // DARCY FRICTION FACTOR CALCULATOR - LAMINAR //
 
 function calculateFactorLaminar() {
-	var reynolds = document.factorlaminar.reynolds.value;
+	var diameter = document.factorlaminar.diameter.value;
+	var diameterUnits = document.factorlaminar.diameterUnits.value;
+	
+	var velocity = document.factorlaminar.velocity.value;
+	var velocityUnits = document.factorlaminar.velocityUnits.value;
+
+	var viscosity = document.factorlaminar.viscosity.value;
+	var viscosityUnits = document.factorlaminar.viscosityUnits.value;
+
+	var density = document.factorlaminar.density.value;
+	var densityUnits = document.factorlaminar.densityUnits.value;
+
+	diameter = convertLength(diameter, diameterUnits, "ft");
+	velocity = convertVelocity(velocity, velocityUnits, "fps");
+
+	var reynolds = diameter * velocity * density / viscosity;
 
 	document.factorlaminar.calculatedFactor.value = (64 / reynolds).toFixed(2).toString();
 
@@ -663,7 +698,10 @@ function calculateFactorLaminar() {
 }
 
 function clearFactorLaminar() {
-	document.factorlaminar.reynolds.value = 0;
+	document.factorlaminar.diameter.value = 0;	
+	document.factorlaminar.velocity.value = 0;
+	document.factorlaminar.density.value = 0;
+	document.factorlaminar.viscosity.value = 0;
 	document.factorlaminar.calculatedFactor.value = 0;
 }
 

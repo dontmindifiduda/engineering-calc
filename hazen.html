@@ -43,19 +43,7 @@
 		</aside>
 
 		<section class="container col-2-3 calculator">
-			<div class="calculator-box">
-				<div class="equation-box">
-					<h3>Hazen Williams Equation</h3>
-					<p class="equation">
-						$$H = {{10.44 L_{ft} Q_{gpm}^{1.852}} \over {C^{1.852} d_{in}^{4.8704}}}$$
-
-						where:
-
-					</p>
-				</div>
-
-				<br>
-				
+			<div class="calculator-box">		
 				<form name="hazen">
 					<fieldset>
 						<legend>Head Loss Calculator (Hazen-Williams Equation)</legend>
@@ -69,8 +57,6 @@
 							</select>
 						</label>
 						
-						<br>
-						
 						<label>
 							Fluid Flowrate:
 							<input type="text" name="flowrate" placeholder="i.e.3" onchange="buttonRecalculate()" required></input>
@@ -81,8 +67,6 @@
 							</select>
 						</label>
 
-						<br>
-
 						<label>
 							Pipe Length:
 							<input type="text" name="pipeLength" placeholder="i.e.3" onchange="buttonRecalculate()" required></input>
@@ -92,15 +76,11 @@
 								<option name="meters-length" value="m">m</option>
 							</select>
 						</label>
-
-						<br>
 					
 						<label>
 							Hazen Williams Coefficient:
 							<input type="text" name="coefficient" value="" onchange="buttonRecalculate()"></input>
 						</label>
-
-						<br>
 
 						<label>
 							Headloss:
@@ -112,13 +92,28 @@
 							</select>
 						</label>
 
-						<br>
-
-						<input id="calc-button" type="button" name="submit" value="Calculate" onclick="calculateHazen()"></input>
-						<input type="button" name="clear" value="Clear" onclick="clearHazen()"></input>
+						<div>
+							<input id="calc-button" type="button" name="submit" value="Calculate" onclick="calculateHazen()"></input>
+							<input type="button" name="clear" value="Clear" onclick="clearHazen()"></input>
+						</div>
 
 					</fieldset>
 				</form>
+
+				<h3 class="equation-title">Hazen Williams Equation:</h3>
+				<p class="equation">
+					$$H = {{10.44 L_{ft} Q_{gpm}^{1.852}} \over {C^{1.852} d_{in}^{4.8704}}}$$
+				
+					where:
+				</p>
+				
+				<ul class="constant-list">
+					<li>H = Head Loss (ft)</li>
+					<li>L = Length (ft)</li>
+					<li>Q = Flow (gpm)</li>
+					<li>C = Hazen Williams Coefficients</li>
+					<li>d = Pipe Diameter (in)</li>
+				</ul>
 
 			</div>
 
@@ -252,6 +247,7 @@
 						<td colspan="2">110</td>
 					</tr>
 				</table>
+				<h4 class="source">Source:  </h4>
 			</div>
 
 		</section>

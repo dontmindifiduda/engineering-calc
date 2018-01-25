@@ -43,7 +43,6 @@
 
 		<section class="container col-2-3 calculator">
 			<div class="calculator-box">
-
 				<div class="equation-box">
 					<h3>Laminar Flow Equation</h3>
 					<p class="equation">
@@ -63,27 +62,26 @@
 							Reynolds Number:
 							<input type="text" name="reynolds" placeholder="i.e.3" onchange="buttonRecalculate()" required></input>
 						</label>
-
-						<br>
-					
+				
 						<label>
 							Friction Factor:
 							<input class="calculated" type="text" name="calculatedFactor" value="" readonly></input>
 						</label>
 
-						<br>
-					
-						<input id="calc-button" type="button" name="submit" value="Calculate" onclick="calculateFactorLaminar()"></input>
-						<input type="button" name="clear" value="Clear" onclick="clearFactorLaminar()"></input>
+						<div>
+							<input id="calc-button" type="button" name="submit" value="Calculate" onclick="calculateFactorLaminar()"></input>
+							<input type="button" name="clear" value="Clear" onclick="clearFactorLaminar()"></input>
+						</div>
 
 					</fieldset>
 				</form>
 
-				<br>
-				<br>
+			</div>
+
+			<div class="calculator-box">
 
 				<div class="equation-box">
-					<h3>Colebrook-White Equation</h3>
+					<h3>Colebrook-White Equation (Turbulent Flow)</h3>
 					<p class="equation">
 						$$f = {-2 \log \left({{\epsilon \over {3.7D_{h}}} + {2.51 \over Re \sqrt{f}}}\right)}$$
 
