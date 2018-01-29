@@ -37,7 +37,7 @@
 					<li><a href="darcy.html">Pipe Head Loss (Darcy-Weisbach Equation)</a></li>
 					<li><a href="manning.html">Open Channel Flow (Manning Equation)</a></li>
 					<li><a href="reynolds.html">Reynolds Number</a></li>
-					<li><a href="factor.html">Froude Number</a></li>
+					<li><a href="factor.html">Darcy Friction Factor</a></li>
 				</ul>
 			</nav>
 		</aside>
@@ -50,8 +50,8 @@
 					
 						<label>
 							Pipe Diameter:
-							<input type="text" name="diameter" placeholder="i.e. 2" onchange="buttonRecalculate()" required></input>
-							<select class="unit-selector" name="diameterUnits" onchange="buttonRecalculate()">
+							<input type="text" name="diameter" placeholder="Enter Pipe Diameter" onchange="buttonRecalculate('hazen-button')" required></input>
+							<select class="unit-selector" name="diameterUnits" onchange="buttonRecalculate('hazen-button')">
 								<option value="in" selected>in</option>
 								<option value="m">m</option>
 							</select>
@@ -59,8 +59,8 @@
 						
 						<label>
 							Fluid Flowrate:
-							<input type="text" name="flowrate" placeholder="i.e.3" onchange="buttonRecalculate()" required></input>
-							<select  class="unit-selector" name="flowUnits" onchange="buttonRecalculate()">
+							<input type="text" name="flowrate" placeholder="Enter Fluid Flowrate" onchange="buttonRecalculate('hazen-button')" required></input>
+							<select  class="unit-selector" name="flowUnits" onchange="buttonRecalculate('hazen-button')">
 								<option name="cfs" value="cfs" selected>cfs</option>
 								<option name="gpm" value="gpm">gpm</option>
 								<option name="cms" value="cms">m3/s</option>
@@ -69,8 +69,8 @@
 
 						<label>
 							Pipe Length:
-							<input type="text" name="pipeLength" placeholder="i.e.3" onchange="buttonRecalculate()" required></input>
-							<select  class="unit-selector" name="pipeLengthUnits" onchange="buttonRecalculate()">
+							<input type="text" name="pipeLength" placeholder="Enter Pipe Length" onchange="buttonRecalculate('hazen-button')" required></input>
+							<select  class="unit-selector" name="pipeLengthUnits" onchange="buttonRecalculate('hazen-button')">
 								<option name="feet-length" value="ft" selected>ft</option>
 								<option name="miles-length" value="mi">mi</option>
 								<option name="meters-length" value="m">m</option>
@@ -79,13 +79,14 @@
 					
 						<label>
 							Hazen Williams Coefficient:
-							<input type="text" name="coefficient" value="" onchange="buttonRecalculate()"></input>
+							<input type="text" name="coefficient" placeholder="Enter Coefficient" value="" onchange="buttonRecalculate('hazen-button')"></input>
+							<span class="hazen-text">Select from the table on the right</span>
 						</label>
 
 						<label>
 							Headloss:
 							<input class="calculated" type="text" name="calculatedHeadloss" value="" readonly></input>
-							<select  class="unit-selector" name="headlossUnits" onchange="buttonRecalculate()">
+							<select  class="unit-selector" name="headlossUnits" onchange="buttonRecalculate('hazen-button')">
 								<option value="ft" selected>ft</option>
 								<option value="in">in</option>
 								<option value="m">m</option>
@@ -93,7 +94,7 @@
 						</label>
 
 						<div>
-							<input id="calc-button" type="button" name="submit" value="Calculate" onclick="calculateHazen()"></input>
+							<input id="hazen-button" type="button" name="submit" value="Calculate" onclick="calculateHazen()"></input>
 							<input type="button" name="clear" value="Clear" onclick="clearHazen()"></input>
 						</div>
 
@@ -181,7 +182,7 @@
 					</tr>
 					<tr>
 						<td class="material">Cast Iron - Cement-Lined</td>
-						<td collspan="2">140</td>
+						<td colspan="2">140</td>
 					</tr>
 					<tr>
 						<td class="material">Concrete</td>

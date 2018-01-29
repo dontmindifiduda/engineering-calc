@@ -232,17 +232,26 @@ label {
 	box-shadow: -3px 3px 3px gray;
 }
 
+.watertable {
+	text-align: center;
+}
+
 .material-col {
 	width: 300px;
+}
+
+.roughness-material-col {
+	width: 250px;
 }
 
 .coefficient-col {
 	width: 100px;
 }
 
-.temperature-col, .viscosity-col, .density-col {
+.temperature-col, .viscosity-col, .density-col  {
 	width: 150px;
 }
+
 
 .material {
 	text-align: left;
@@ -279,6 +288,12 @@ legend {
 
 .moody {
 	margin-top: 300px;
+	border: 2px solid black;
+	border-radius: 10px;
+	width: 550px;
+	height: 450px;
+	box-shadow: -3px 3px 3px gray;
+	cursor: pointer;
 }
 
 /* EQUATION STYLING */
@@ -296,7 +311,6 @@ legend {
 .equation {
 	font-size: 18px;
 }
-
 
 /* MODALS */
 
@@ -334,7 +348,6 @@ legend {
 	margin: -30px -20px 0 0;
 }
 
-
 .modal-calcs {
 	float: left;
 }
@@ -363,7 +376,7 @@ legend {
 	margin-top: 10px;
 }
 
-.factor-button {
+.equation-box-button {
 	text-align: center;
 	margin-left: 20px;
 }
@@ -376,6 +389,48 @@ legend {
 	margin-bottom: 10px;
 }
 
-.equation-title {
-	margin-top: 50px;
+form {
+	margin-bottom: 50px;
+}
+
+.hazen-text {
+	font-size: 10px;
+	margin-left: 5px;
+	color: gray;
+}
+
+.lower-table-box {
+	margin-top: 40px;
+}
+
+#moody-diagram .modal-interior {
+	width: 60%;
+	margin-left: 50%;
+	transform: translateX(-50%);
+}
+
+/* IMAGE RESIZING */
+
+.resize {
+	max-width: 100%;
+	max-height: auto;
+}
+
+.resize-big {
+	max-width: 100%;
+	width: 95%;
+	max-height: auto;
+}
+
+.image-center {
+	margin-left: 50%;
+	transform: translateX(-50%);
+}
+
+.image-header {
+	text-align: center;
+}
+
+.water-table-customary {
+	margin-top: 300px;
 }

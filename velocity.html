@@ -37,7 +37,7 @@
 					<li><a href="darcy.html">Pipe Head Loss (Darcy-Weisbach Equation)</a></li>
 					<li><a href="manning.html">Open Channel Flow (Manning Equation)</a></li>
 					<li><a href="reynolds.html">Reynolds Number</a></li>
-					<li><a href="factor.html">Froude Number</a></li>
+					<li><a href="factor.html">Darcy Friction Factor</a></li>
 				</ul>
 			</nav>
 		</aside>
@@ -50,8 +50,8 @@
 
 						<label>
 							Pipe Diameter:
-							<input type="text" name="diameter" placeholder="Enter Pipe Diameter" onchange="buttonRecalculate()" required></input>
-							<select class="unit-selector" name="diameterUnits" onchange="buttonRecalculate()">
+							<input type="text" name="diameter" placeholder="Enter Pipe Diameter" onchange="buttonRecalculate('velocity-button')" required></input>
+							<select class="unit-selector" name="diameterUnits" onchange="buttonRecalculate('velocity-button')">
 								<option value="in" selected>in</option>
 								<option value="m">m</option>
 							</select>
@@ -59,8 +59,8 @@
 						
 						<label>
 							Fluid Flowrate:
-							<input type="text" name="flowrate" placeholder="Enter Fluid Flowrate" onchange="buttonRecalculate()" required></input>
-							<select class="unit-selector" name="flowUnits" onchange="buttonRecalculate()">
+							<input type="text" name="flowrate" placeholder="Enter Fluid Flowrate" onchange="buttonRecalculate('velocity-button')" required></input>
+							<select class="unit-selector" name="flowUnits" onchange="buttonRecalculate('velocity-button')">
 								<option name="cfs" value="cfs" selected>cfs</option>
 								<option name="gpm" value="gpm">gpm</option>
 								<option name="cms" value="cms">m3/s</option>
@@ -70,20 +70,22 @@
 						<label>
 							Fluid Velocity:
 							<input class="calculated" type="text" name="calculatedVelocity" value="" readonly></input>
-							<select class="unit-selector" name="velocityUnits" onchange="buttonRecalculate()">
+							<select class="unit-selector" name="velocityUnits" onchange="buttonRecalculate('velocity-button')">
 								<option name="fps" value="fps" selected>ft/s</option>
 								<option name="mps" value="mps">m/s</option>
 							</select>
 						</label>
 
 						<div>
-							<input id="calc-button" type="button" name="submit" value="Calculate" onclick="calculateVelocity()"></input>
+							<input id="velocity-button" type="button" name="submit" value="Calculate" onclick="calculateVelocity()"></input>
 							<input type="button" name="clear" value="Clear" onclick="clearVelocity()"></input>
 						</div>
 
 					</fieldset>
-				</form>
+				</form>		
+			</div>
 
+			<div class="info-box">
 				<h3 class="equation-title">Pipe Velocity Equation:</h3>
 				<p class="equation">
 					$$V = {4Q \over {\pi D^{2}}}$$

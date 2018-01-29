@@ -6,19 +6,14 @@ function convertMetersTo(value, units_to) {
 	switch (units_to) {
 		case "ft":
 			return value * 3.2808;
-			break;
 		case "in":
 			return value * 39.370;
-			break;
 		case "cm":
 			return value * 100;
-			break;
 		case "mm":
 			return value * 1000;
-			break;
 		case "mi":
 			return value * 0.000621371;
-			break;
 	}
 }
 
@@ -28,19 +23,14 @@ function convertFeetTo(value, units_to) {
 	switch (units_to) {
 		case "m":
 			return value * 0.3048;
-			break;
 		case "in":
 			return value * 12;
-			break;
 		case "mi":
 			return value * 0.000189394;
-			break;
 		case "cm":
 			return value * 30.48;
-			break;
 		case "mm":
 			return value * 304.8;
-			break;
 	}
 }
 
@@ -50,19 +40,14 @@ function convertInchesTo(value, units_to) {
 	switch (units_to) {
 		case "m":
 			return value * 0.0254;
-			break;
 		case "ft":
 			return value * 0.08333;
-			break;
 		case "mi":
 			return value / (12 * 5280);
-			break;
 		case "cm":
 			return value * 2.54;
-			break;
 		case "mm":
 			return value * 25.4;
-			break;
 	}
 }
 
@@ -72,19 +57,14 @@ function convertCentimetersTo(value, units_to) {
 	switch (units_to) {
 		case "m":
 			return value * 0.01;
-			break;
 		case "ft":
 			return value * 0.032808;
-			break;
 		case "mi":
 			return value * 0.032808 / 5280;
-			break;
 		case "in":
 			return value * 0.3937;
-			break;
 		case "mm":
 			return value * 10;
-			break;
 	}
 }
 
@@ -94,19 +74,14 @@ function convertMillimetersTo(value, units_to) {
 	switch (units_to) {
 		case "m":
 			return value * 0.001;
-			break;
 		case "ft":
 			return value * 0.0032808;
-			break;
 		case "mi":
 			return value * 0.0032808 / 5280;
-			break;
 		case "in":
 			return value * 0.03937;
-			break;
 		case "cm":
 			return value * 0.1;
-			break;
 	}
 }
 
@@ -116,45 +91,33 @@ function convertMilesTo(value, units_to) {
 	switch (units_to) {
 		case "m":
 			return value * 1609.34;
-			break;
 		case "ft":
 			return value * 5280;
-			break;
 		case "mm":
 			return value * 1609.34 * 1000;
-			break;
 		case "in":
 			return value * 63360;
-			break;
 		case "cm":
 			return value * 1609.34 * 100;
-			break;
 	}
 }
 
 // Convert length 
 
 function convertLength(value, units_from, units_to) {
-	if (units_from === units_to) {
-		return value;
-	}
-
 	switch (units_from) {
+		case units_from:
+			return value;
 		case "m":
 			return convertMetersTo(value, units_to);
-			break; 
 		case "ft":
 			return convertFeetTo(value, units_to);
-			break;
 		case "in":
 			return convertInchesTo(value, units_to);
-			break;
 		case "mm":
 			return convertMillimetersTo(value, units_to);
-			break;
 		case "cm":
 			return convertCentimetersTo(value, units_to);
-			break;
 	}
 }
 
@@ -166,16 +129,12 @@ function convertCubicMetersTo(value, units_to) {
 	switch (units_to) {
 		case "ft3":
 			return value * 35.3147;
-			break;
 		case "gal":
 			return value * 264.172;
-			break;
 		case "L":
 			return value * 1000;
-			break;
 		case "mL":
 			return value * 1000000;
-			break;
 	}
 }
 
@@ -185,16 +144,12 @@ function convertCubicFeetTo(value, units_to) {
 	switch (units_to) {
 		case "gal":
 			return value * 7.48052;
-			break;
 		case "m3":
 			return value * 0.0283168;
-			break;
 		case "L":
 			return value * 28.3168;
-			break;
 		case "mL":
 			return value * 28316.8;
-			break;
 	}
 }
 
@@ -204,16 +159,12 @@ function convertGallonsTo(value, units_to) {
 	switch (units_to) {
 		case "ft3":
 			return value * 0.133681;
-			break;
 		case "m3":
 			return value * 0.00378541;
-			break;
 		case "L":
 			return value * 3.78541;
-			break;
 		case "mL":
 			return value * 3785.41;
-			break;
 	}
 }
 
@@ -223,16 +174,12 @@ function convertLitersTo(value, units_to) {
 	switch (units_to) {
 		case "ft3":
 			return value * 0.0353147;
-			break;
 		case "m3":
 			return value * 0.001;
-			break;
 		case "gal":
 			return value * 0.264172;
-			break;
 		case "mL":
 			return value * 1000;
-			break;
 	}
 }
 
@@ -242,45 +189,33 @@ function convertMillilitersTo(value, units_to) {
 	switch (units_to) {
 		case "ft3":
 			return value * 0.0000353147;
-			break;
 		case "m3":
 			return value * 0.000001;
-			break;
 		case "gal":
 			return value * 0.000264172;
-			break;
 		case "L":
 			return value * 0.001;
-			break;
 	}
 }
 
 // Convert Volume
 
 function convertVolume(value, units_from, units_to) {
-	if (units_from === units_to) {
-		return value;
-	}
-
 	switch (units_from) {
+		case units_from:
+			return value;
 		case "ft3":
 			return convertCubicFeetTo(value, units_to);
-			break; 
 		case "m3":
 			return convertCubicMetersTo(value, units_to);
-			break;
 		case "gal":
 			return convertGallonsTo(value, units_to);
-			break;
 		case "L":
 			return convertLitersTo(value, units_to);
-			break;
 		case "mL":
 			return convertMillilitersTo(value, units_to);
-			break;
 	}
 }
-
 
 // Flow Conversion
 
@@ -290,16 +225,12 @@ function convertGPMTo(value, units_to) {
 	switch (units_to) {
 		case "cfs":
 			return value * 0.002228;
-			break;
 		case "cms":
 			return value * 0.000063;
-			break;
 		case "gpd":
 			return value * 1440;
-			break;
 		case "mgd":
 			return value * (60 * 24) / 1000000;
-			break;
 	}
 }
 
@@ -309,16 +240,12 @@ function convertCFSTo(value, units_to) {
 	switch (units_to) {
 		case "gpm":
 			return value * 448.83;
-			break;
 		case "cms":
 			return value * 0.0283168;
-			break;
 		case "gpd":
 			return value * 646190.439;
-			break;
 		case "mgd":
 			return value * 0.6463168;
-			break;
 	}
 }
 
@@ -328,16 +255,12 @@ function convertCMSTo(value, units_to) {
 	switch (units_to) {
 		case "gpm":
 			return value * 15850.32;
-			break;
 		case "cfs":
 			return value * 35.3147;
-			break;
 		case "gpd":
 			return value * 22820000;
-			break;
 		case "mgd":
 			return value * 22.82;
-			break;
 	}
 }
 
@@ -347,16 +270,12 @@ function convertGPDTo(value, units_to) {
 	switch (units_to) {
 		case "gpm":
 			return value / 1440;
-			break;
 		case "cfs":
 			return value * 0.00000154723;
-			break;
 		case "cms":
 			return value * 0.000063 / 1440;
-			break;
 		case "mgd":
 			return value * 0.000001;
-			break;
 	}
 }
 
@@ -366,41 +285,31 @@ function convertMGDTo(value, units_to) {
 	switch (units_to) {
 		case "gpm":
 			return value * 1440 / 1000000;
-			break;
 		case "cfs":
 			return value * 1.5472;
-			break;
 		case "cms":
 			return value * 0.04381175;
-			break;
 		case "gpd":
 			return value * 1000000;
-			break;
 	}
 }
 
 // Convert Flow
 
 function convertFlow(value, units_from, units_to) {
-	if (units_from === units_to) {
-		return value;
-	}
 	switch (units_from) {
+		case units_from:
+			return value;
 		case "gpm":
 			return convertGPMTo(value, units_to);
-			break; 
 		case "mgd":
 			return convertMGDTo(value, units_to);
-			break;
 		case "gpd":
 			return convertGPDTo(value, units_to);
-			break;
 		case "cms":
 			return convertCMSTo(value, units_to);
-			break;
 		case "cfs":
 			return convertCFSTo(value, units_to);
-			break;
 	}
 }
 
@@ -408,10 +317,9 @@ function convertFlow(value, units_from, units_to) {
 // Density Conversion
 
 function convertDensity(value, units_from, units_to) {
-	if (units_from === units_to) {
-		return value;
-	}
 	switch (units_from) {
+		case units_from:
+			return value;
 		case "metric":
 			return ;
 			break;
@@ -429,7 +337,6 @@ function convertFPSTo(value, units_to) {
 	switch (units_to) {
 		case "mps":
 			return value * 0.3048;
-			break;
 	}
 }
 
@@ -439,38 +346,32 @@ function convertMPSTo(value, units_to) {
 	switch (units_to) {
 		case "fps":
 			return value * 3.2808; 
-			break;
 	}
 }
 
 // Convert Velocity
 
-function convertVelocity(value, units_to, units_from) {
-	if (units_from === units_to) {
-		return value;
-	}
+function convertVelocity(value, units_from, units_to) {
 	switch (units_from) {
+		case units_to:
+			return value;
 		case "fps":
 			return convertFPSTo(value, units_to);
-			break;
 		case "mps":
 			return convertMPSTo(value, units_to);
-			break;
 	}
 }
-
-
 
 
 // Change 'Calculate' button color when form values have changed
 
-function buttonRecalculate() {
-	var button = document.getElementById('calc-button');
+function buttonRecalculate(btn) {
+	var button = document.getElementById(btn);
 	button.setAttribute("style", "color: red;"); 
 }
 
-function buttonCalculated() {
-	var button = document.getElementById('calc-button');
+function buttonCalculated(btn) {
+	var button = document.getElementById(btn);
 	button.setAttribute("style", "background-color: white;"); 
 }
 
@@ -493,15 +394,13 @@ function calculateVelocity() {
 
 	pipeVelocity = convertVelocity(pipeVelocity, "fps", pipeVelocityUnits);
 
-	pipeVelocity = pipeVelocity.toFixed(2).toString();
-
-	if (isNaN(pipeVelocity)) {
+	if (Number.isNaN(pipeVelocity)) {
 		document.velocity.calculatedVelocity.value = "Invalid Data";
 	} else {
-		document.velocity.calculatedVelocity.value = pipeVelocity;
+		document.velocity.calculatedVelocity.value = pipeVelocity.toFixed(2).toString();
 	}
 
-	buttonCalculated();
+	buttonCalculated("velocity-button");
 
 }
 
@@ -509,6 +408,7 @@ function clearVelocity() {
 	document.velocity.diameter.value = "";
 	document.velocity.flowrate.value = "";
 	document.velocity.calculatedVelocity.value = "";
+	buttonCalculated("velocity-button");
 }
 
 // HEAD LOSS CALCULATOR - HAZEN WILLIAMS //
@@ -535,17 +435,22 @@ function calculateHazen() {
 
 	headloss = convertLength(headloss, "ft", headlossUnits);
 
-	document.hazen.calculatedHeadloss.value = headloss.toFixed(2).toString();
+	if (Number.isNaN(headloss)) {
+		document.hazen.calculatedHeadloss.value = "Invalid Data";
+	} else {
+		document.hazen.calculatedHeadloss.value = headloss.toFixed(2).toString();
+	}
 
-	buttonCalculated();
+	buttonCalculated("hazen-button");
 }
 
 function clearHazen() {
-	document.hazen.diameter.value = 0;
-	document.hazen.flowrate.value = 0;
-	document.hazen.pipeLength.value = 0;
-	document.hazen.coefficient.value = 0;
-	document.hazen.calculatedHeadloss.value = 0;
+	document.hazen.diameter.value = "";
+	document.hazen.flowrate.value = "";
+	document.hazen.pipeLength.value = "";
+	document.hazen.coefficient.value = "";
+	document.hazen.calculatedHeadloss.value = "";
+	buttonCalculated("hazen-button")
 }
 
 // HEAD LOSS CALCULATOR - DARCY //
@@ -572,17 +477,22 @@ function calculateDarcy() {
 
 	headloss = convertLength(headloss, "ft", headlossUnits);
 
-	document.darcy.calculatedHeadloss.value = headloss.toFixed(2).toString();
+	if (Number.isNaN(headloss)) {
+		document.darcy.calculatedHeadloss.value = "Invalid Data";
+	} else {
+		document.darcy.calculatedHeadloss.value = headloss.toFixed(2).toString();
+	}
 
-	buttonCalculated();
+	buttonCalculated("darcy-button");
 }
 
 function clearDarcy() {
-	document.darcy.diameter.value = 0;
-	document.darcy.velocity.value = 0;
-	document.darcy.pipeLength.value = 0;
-	document.darcy.factor.value = 0;
-	document.darcy.calculatedHeadloss.value = 0;
+	document.darcy.diameter.value = "";
+	document.darcy.velocity.value = "";
+	document.darcy.pipeLength.value = "";
+	document.darcy.factor.value = "";
+	document.darcy.calculatedHeadloss.value = "";
+	buttonCalculated("darcy-button");
 }
 
 // REYNOLDS NUMBER CALCULATOR //
@@ -603,17 +513,22 @@ function calculateReynolds() {
 
 	var reynolds = diameter * velocity * density / viscosity;
 
-	document.reynolds.calculatedReynolds.value = reynolds.toFixed(2).toString();
+	if (Number.isNaN(reynolds)) {
+		document.reynolds.calculatedReynolds.value = "Invalid Data";
+	} else {
+		document.reynolds.calculatedReynolds.value = reynolds.toFixed(2).toString();
+	}
 
-	buttonCalculated();
+	buttonCalculated("reynolds-button");
 }
 
 function clearReynolds() {
-	document.reynolds.diameter.value = 0;
-	document.reynolds.velocity.value = 0;
-	document.reynolds.viscosity.value = 0;
-	document.reynolds.density.value = 0;
-	document.reynolds.calculatedReynolds.value = 0;
+	document.reynolds.diameter.value = "";
+	document.reynolds.velocity.value = "";
+	document.reynolds.viscosity.value = "";
+	document.reynolds.density.value = "";
+	document.reynolds.calculatedReynolds.value = "";
+	buttonCalculated("reynolds-button");
 }
 
 // DARCY FRICTION FACTOR CALCULATOR - TURBULENT //
@@ -623,6 +538,7 @@ function calculateFactorTurbulent() {
 	var diameterUnits = document.factorturbulent.diameterUnits.value;
 
 	var roughness = document.factorturbulent.roughness.value;
+	var roughnessUnits = document.factorturbulent.roughnessUnits.value;
 	
 	var velocity = document.factorturbulent.velocity.value;
 	var velocityUnits = document.factorturbulent.velocityUnits.value;
@@ -633,6 +549,7 @@ function calculateFactorTurbulent() {
 
 	diameter = convertLength(diameter, diameterUnits, "ft");
 	velocity = convertVelocity(velocity, velocityUnits, "fps");
+	roughness = convertLength(roughness, roughnessUnits, "ft");
 
 	var reynolds = diameter * velocity * density / viscosity;
 
@@ -655,10 +572,14 @@ function calculateFactorTurbulent() {
 			highGuess = midpoint;
 		}
 	}
-	
-	document.factorturbulent.calculatedFactor.value = lowGuess.toFixed(4).toString();
 
-	buttonCalculated();
+	if (Number.isNaN(lowGuess)) {
+		document.factorturbulent.calculatedFactor.value = "Invalid Data";
+	} else {
+		document.factorturbulent.calculatedFactor.value = lowGuess.toFixed(4).toString();
+	}
+
+	buttonCalculated("factor-turbulent-button");
 }
 
 function evaluateFactorEquation(roughness, diameter, reynolds, factor) {
@@ -666,10 +587,13 @@ function evaluateFactorEquation(roughness, diameter, reynolds, factor) {
 }
 
 function clearFactorTurbulent() {
-	document.factorturbulent.diameter.value = 0;
-	document.factorturbulent.roughness.value = 0;
-	document.factorturbulent.reynolds.value = 0;
-	document.factorturbulent.calculatedFactor.value = 0;
+	document.factorturbulent.diameter.value = "";
+	document.factorturbulent.roughness.value = "";
+	document.factorturbulent.velocity.value = "";
+	document.factorturbulent.density.value = "";
+	document.factorturbulent.viscosity.value = "";
+	document.factorturbulent.calculatedFactor.value = "";
+	buttonCalculated("factor-turbulent-button");
 }
 
 // DARCY FRICTION FACTOR CALCULATOR - LAMINAR //
@@ -692,59 +616,44 @@ function calculateFactorLaminar() {
 
 	var reynolds = diameter * velocity * density / viscosity;
 
-	document.factorlaminar.calculatedFactor.value = (64 / reynolds).toFixed(2).toString();
+	if (isNaN(reynolds)) {
+		document.factorlaminar.calculatedFactor.value = "Invalid Data";
+	} else {
+		document.factorlaminar.calculatedFactor.value = (64 / reynolds).toFixed(2).toString();
+	}
 
-	buttonCalculated();
+	buttonCalculated("factor-laminar-button");
 }
 
 function clearFactorLaminar() {
-	document.factorlaminar.diameter.value = 0;	
-	document.factorlaminar.velocity.value = 0;
-	document.factorlaminar.density.value = 0;
-	document.factorlaminar.viscosity.value = 0;
-	document.factorlaminar.calculatedFactor.value = 0;
+	document.factorlaminar.diameter.value = "";	
+	document.factorlaminar.velocity.value = "";
+	document.factorlaminar.density.value = "";
+	document.factorlaminar.viscosity.value = "";
+	document.factorlaminar.calculatedFactor.value = "";
+	buttonCalculated("factor-laminar-button");
 }
 
 // MODAL EQUATIONS //
 
-var modal = document.getElementById("calc-modal");
-
-var modalButton = document.getElementById("modalButton");
-
-var closingIcon = document.getElementsByClassName("close")[0];
-
-function modalActivate() {
+function modalActivate(mod) {
+	var modal = document.getElementById(mod);
 	modal.style.display = "block";
 }
 
-closingIcon.onclick = function() {
+function closeModal(mod) {
+	var modal = document.getElementById(mod);
 	modal.style.display = "none";
 }
 
-window.onclick = function(event) {
-	if (event.target === modal) {
-		modal.style.display = "none";
-	}
-}
-
-
+// INSERT FACTORS // 
 
 function insertFactor() {
 	modal.style.display = "none";
-	
-	console.log(document.factorlaminar.calculatedFactor.value);
-	
 	document.darcy.factor.value = document.factorlaminar.calculatedFactor.value;
-
-	console.log(document.darcy.factor.value);
 }
 
-
-
 function insertFactorLaminar() {
-	console.log(document.darcy.factor.value);
-	console.log(document.factorlaminar.calculatedFactor.value);
-
 	document.darcy.factor.value = document.factorturbulent.calculatedFactor.value;
 	modal.style.display = "none";
 }

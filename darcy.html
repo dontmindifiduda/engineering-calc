@@ -36,7 +36,7 @@
 					<li><a href="darcy.html">Pipe Head Loss (Darcy-Weisbach Equation)</a></li>
 					<li><a href="manning.html">Open Channel Flow (Manning Equation)</a></li>
 					<li><a href="reynolds.html">Reynolds Number</a></li>
-					<li><a href="factor.html">Froude Number</a></li>
+					<li><a href="factor.html">Darcy Friction Factor</a></li>
 				</ul>
 			</nav>
 		</aside>
@@ -49,8 +49,8 @@
 					
 						<label>
 							Pipe Diameter:
-							<input type="text" name="diameter" placeholder="i.e. 2" onchange="buttonRecalculate()" required></input>
-							<select class="unit-selector" name="diameterUnits" onchange="buttonRecalculate()">
+							<input type="text" name="diameter" placeholder="Enter Pipe Diameter" onchange="buttonRecalculate('darcy-button')" required></input>
+							<select class="unit-selector" name="diameterUnits" onchange="buttonRecalculate('darcy-button')">
 								<option value="in" selected>in</option>
 								<option value="m">m</option>
 							</select>
@@ -58,8 +58,8 @@
 						
 						<label>
 							Fluid Velocity:
-							<input type="text" name="velocity" placeholder="i.e.3" onchange="buttonRecalculate()" required></input>
-							<select  class="unit-selector" name="velocityUnits" onchange="buttonRecalculate()">
+							<input type="text" name="velocity" placeholder="Enter Fluid Velocity" onchange="buttonRecalculate('darcy-button')" required></input>
+							<select  class="unit-selector" name="velocityUnits" onchange="buttonRecalculate('darcy-button')">
 								<option name="fps" value="fps" selected>ft/s</option>
 								<option name="mps" value="mps">m/s</option>
 							</select>
@@ -67,8 +67,8 @@
 
 						<label>
 							Pipe Length:
-							<input type="text" name="pipeLength" placeholder="i.e.3" onchange="buttonRecalculate()" required></input>
-							<select  class="unit-selector" name="pipeLengthUnits" onchange="buttonRecalculate()">
+							<input type="text" name="pipeLength" placeholder="Enter Pipe Length" onchange="buttonRecalculate('darcy-button')" required></input>
+							<select  class="unit-selector" name="pipeLengthUnits" onchange="buttonRecalculate('darcy-button')">
 								<option name="feet-length" value="ft" selected>ft</option>
 								<option name="miles-length" value="mi">mi</option>
 								<option name="meters-length" value="m">m</option>
@@ -77,33 +77,31 @@
 					
 						<label>
 							Darcy Friction Factor:
-							<input type="text" name="factor" value="" onchange="buttonRecalculate()"></input> 
-							<input class="factor-button" type="button" value="Calculate Friction Factor" name="factormodal" onclick="modalActivate()"></input>
+							<input type="text" name="factor" value="" placeholder="Enter Friction Factor" onchange="buttonRecalculate('darcy-button')"></input> 
+							<input class="equation-box-button" type="button" value="Calculate Friction Factor" name="factormodal" onclick="modalActivate('darcy-factor-modal')"></input>
 						</label>
 
 						<label>
 							Headloss:
 							<input class="calculated" type="text" name="calculatedHeadloss" readonly></input>
-							<select  class="unit-selector" name="headlossUnits" onchange="buttonRecalculate()">
+							<select  class="unit-selector" name="headlossUnits" onchange="buttonRecalculate('darcy-button')">
 								<option value="ft" selected>ft</option>
 								<option value="in">in</option>
 								<option value="m">m</option>
 							</select>
 						</label>
 
-						<input id="calc-button" type="button" name="submit" value="Calculate" onclick="calculateDarcy()"></input>
-						<input type="button" name="clear" value="Clear" onclick="clearDarcy()"></input>
+						<div>
+							<input id="darcy-button" type="button" name="submit" value="Calculate" onclick="calculateDarcy()"></input>
+							<input type="button" name="clear" value="Clear" onclick="clearDarcy()"></input>
+						</div>
 
 					</fieldset>
 				</form>
 
-
-
-
-
-				<div id="calc-modal" class="modal">
+				<div id="darcy-factor-modal" class="modal factormodal">
 					<div class="modal-interior">
-						<span class="close">&times;</span>
+						<span class="close" id="close-button" onclick="closeModal('darcy-factor-modal')">&times;</span>
 						<div class="modal-calcs">
 							<form name="factorlaminar">
 								<fieldset>
@@ -111,8 +109,8 @@
 
 									<label>
 										Pipe Diameter:
-										<input type="text" name="diameter" placeholder="i.e. 2" onchange="buttonRecalculate()" required></input>
-										<select class="unit-selector" name="diameterUnits" onchange="buttonRecalculate()">
+										<input type="text" name="diameter" placeholder="Enter Diameter" onchange="buttonRecalculate('factor-laminar-button')" required></input>
+										<select class="unit-selector" name="diameterUnits" onchange="buttonRecalculate('factor-laminar-button')">
 											<option value="in" selected>in</option>
 											<option value="m">m</option>
 										</select>
@@ -120,8 +118,8 @@
 
 									<label>
 										Fluid Velocity:
-										<input type="text" name="velocity" value=""></input>
-										<select name="velocityUnits" onchange="buttonRecalculate()">
+										<input type="text" name="velocity" placeholder="Enter Velocity" value=""></input>
+										<select name="velocityUnits" onchange="buttonRecalculate('factor-laminar-button')">
 											<option name="fps" value="fps" selected>ft/s</option>
 											<option name="mps" value="mps">m/s</option>
 										</select>
@@ -129,8 +127,8 @@
 						
 									<label>
 										Fluid Density:
-										<input type="text" name="density" placeholder="i.e.4" onchange="buttonRecalculate()"></input>
-										<select name="densityUnits" onchange="buttonRecalculate()">
+										<input type="text" name="density" placeholder="Enter Density" onchange="buttonRecalculate('factor-laminar-button')"></input>
+										<select name="densityUnits" onchange="buttonRecalculate('factor-laminar-button')">
 											<option name="kg_per_m3" value="kg_per_m3" selected>kg/m3</option>
 											<option name="lb_per_ft3" value="lb_per_ft3">lb/ft3</option>
 										</select>
@@ -138,8 +136,8 @@
 
 									<label>
 										Absolute Viscosity:
-										<input type="text" name="viscosity" placeholder="i.e.4" onchange="buttonRecalculate()"></input>
-										<select name="viscosityUnits" onchange="buttonRecalculate()">
+										<input type="text" name="viscosity" placeholder="Enter Viscosity" onchange="buttonRecalculate('factor-laminar-button')"></input>
+										<select name="viscosityUnits" onchange="buttonRecalculate('factor-laminar-button')">
 											<option name="metric" value="metric">kg/m3</option>
 											<option name="imperial" value="imperial" selected>lb/ft3</option>
 										</select>
@@ -150,9 +148,11 @@
 										<input class="calculated" type="text" name="calculatedFactor" value="" readonly></input>
 										<input type="button" name="insertFactorLaminar" value="Insert Value" onclick="insertFactor()"></input>
 									</label>
-								
-									<input id="calc-button" type="button" name="submit" value="Calculate" onclick="calculateFactorLaminar()"></input>
-									<input type="button" name="clear" value="Clear" onclick="clearFactorLaminar()"></input>
+
+									<div>
+										<input id="factor-laminar-button" type="button" name="submit" value="Calculate" onclick="calculateFactorLaminar()"></input>
+										<input type="button" name="clear" value="Clear" onclick="clearFactorLaminar()"></input>
+									</div>
 
 								</fieldset>
 							</form>
@@ -164,8 +164,8 @@
 								
 									<label>
 										Pipe Diameter:
-										<input type="text" name="diameter" placeholder="i.e. 2" onchange="buttonRecalculate()" required></input>
-										<select class="unit-selector" name="diameterUnits" onchange="buttonRecalculate()">
+										<input type="text" name="diameter" placeholder="Enter Diameter" onchange="buttonRecalculate('factor-turbulent-button')" required></input>
+										<select class="unit-selector" name="diameterUnits" onchange="buttonRecalculate('factor-turbulent-button')">
 											<option value="in" selected>in</option>
 											<option value="m">m</option>
 										</select>
@@ -173,13 +173,17 @@
 																	
 									<label>
 										Roughness:
-										<input type="text" name="roughness" placeholder="i.e.3" onchange="buttonRecalculate()" required></input>
+										<input type="text" name="roughness" placeholder="Enter Roughness" onchange="buttonRecalculate('factor-turbulent-button')" required></input>
+										<select class="unit-selector" name="roughnessUnits" onchange="buttonRecalculate('factor-turbulent-button')">
+											<option value="ft" selected>ft</option>
+											<option value="m">m</option>
+										</select>
 									</label>
 
 									<label>
 										Fluid Velocity:
-										<input type="text" name="velocity" value=""></input>
-										<select name="velocityUnits" onchange="buttonRecalculate()">
+										<input type="text" name="velocity" placeholder="Enter Velocity" value=""></input>
+										<select name="velocityUnits" onchange="buttonRecalculate('factor-turbulent-button')">
 											<option name="fps" value="fps" selected>ft/s</option>
 											<option name="mps" value="mps">m/s</option>
 										</select>
@@ -187,8 +191,8 @@
 						
 									<label>
 										Fluid Density:
-										<input type="text" name="density" placeholder="i.e.4" onchange="buttonRecalculate()"></input>
-										<select name="densityUnits" onchange="buttonRecalculate()">
+										<input type="text" name="density" placeholder="Enter Density" onchange="buttonRecalculate('factor-turbulent-button')"></input>
+										<select name="densityUnits" onchange="buttonRecalculate('factor-turbulent-button')">
 											<option name="kg_per_m3" value="kg_per_m3" selected>kg/m3</option>
 											<option name="lb_per_ft3" value="lb_per_ft3">lb/ft3</option>
 										</select>
@@ -196,8 +200,8 @@
 
 									<label>
 										Absolute Viscosity:
-										<input type="text" name="viscosity" placeholder="i.e.4" onchange="buttonRecalculate()"></input>
-										<select name="viscosityUnits" onchange="buttonRecalculate()">
+										<input type="text" name="viscosity" placeholder="Enter Viscosity" onchange="buttonRecalculate('factor-turbulent-button')"></input>
+										<select name="viscosityUnits" onchange="buttonRecalculate('factor-turbulent-button')">
 											<option name="metric" value="metric">kg/m3</option>
 											<option name="imperial" value="imperial" selected>lb/ft3</option>
 										</select>
@@ -205,12 +209,14 @@
 							
 									<label>
 										Darcy Friction Factor:
-										<input class="calculated" type="text" name="calculatedFactor" value="0" readonly></input>
+										<input class="calculated" type="text" name="calculatedFactor" value="" readonly></input>
 										<input type="button" name="insertFactorTurbulent" value="Insert Value" onclick="insertFactor()"></input>
 									</label>
 
-									<input id="calc-button" type="button" name="submit" value="Calculate" onclick="calculateFactorTurbulent()"></input>
-									<input type="button" name="clear" value="Clear" onclick="clearFactorTurbulent()"></input>
+									<div>
+										<input id="factor-turbulent-button" type="button" name="submit" value="Calculate" onclick="calculateFactorTurbulent()"></input>
+										<input type="button" name="clear" value="Clear" onclick="clearFactorTurbulent('factor-turbulent-button')"></input>
+									</div>
 
 								</fieldset>
 							</form>
@@ -283,13 +289,51 @@
 									</tr>
 								</table>
 								<h4 class="source">Source:  </h4>
+
+								<div class="lower-table-box">
+									<h3 class="info-title">Specific Roughness Coefficient</h3>
+									<table id="roughness" class="datatable">
+										<tr>
+											<th class="roughness-material-col" scope="col">Pipe Material</th>
+											<th class="coefficient-col" scope="col">Feet</th>
+											<th class="coefficient-col" scope="col">Meters</th>
+										</tr>
+										<tr>
+											<td class="material">Plastic (PVC, CPVC, HDPE, etc.)</td>
+											<td>0.000005</td>
+											<td>0.0000015</td>
+										</tr>
+										<tr>
+											<td class="material">Copper and Brass</td>
+											<td>0.000005</td>
+											<td>0.0000015</td>
+										</tr>
+										<tr>
+											<td class="material">Steel</td>
+											<td>0.0002</td>
+											<td>0.00006</td>
+										</tr>
+										<tr>
+											<td class="material">Plain Cast Iron</td>
+											<td>0.0008</td>
+											<td>0.00024</td>
+										</tr>
+										<tr>
+											<td class="material">Concrete</td>
+											<td>0.004</td>
+											<td>0.0012</td>
+										</tr>						
+									</table>
+									<h4 class="source">Source:  </h4>
+								</div>
+
 							</div>
 
 
 
 							<div class="modal-info-left">
 								<h3 class="info-title">Properties of Water (Customary U.S. Units)</h3>
-								<table class="datatable">
+								<table class="datatable watertable">
 									<tr>
 										<th class="temperature-col" scope="col">Temperature (&deg;F)</th>
 										<th class="density-col" scope="col">Density (lb/ft<sup>3</sup>)</th>
@@ -394,30 +438,38 @@
 								<h4 class="source">Source:  </h4>
 							</div>
 						</div>
-
 				</div>
+
 			</div>
 		</div>
 
 		<div class="equation-box">
-			<h3 class="equation-title">Hazen Williams Equation:</h3>
+			<h3 class="equation-title">Darcy-Weisbach Equation:</h3>
 			<p class="equation">
-				$$H = {{10.44 L_{ft} Q_{gpm}^{1.852}} \over {C^{1.852} d_{in}^{4.8704}}}$$
+				$$h_{f} = {{f L v^{2}} \over {2Dg}}$$
 			
 				where:
 			</p>
 				
 			<ul class="constant-list">
-				<li>H = Head Loss (ft)</li>
-				<li>L = Length (ft)</li>
-				<li>Q = Flow (gpm)</li>
-				<li>C = Hazen Williams Coefficients</li>
-				<li>d = Pipe Diameter (in)</li>
+				<li>H = Head Loss</li>
+				<li>L = Length</li>
+				<li>c = Velocity</li>
+				<li>f = Darcy Friction Factor</li>
+				<li>g = Gravity</li>
 			</ul>
 		</div>
 
 		<div class="moody">
-			<img src="moody.jpg" alt="Moody Diagram">
+			<h3 class="image-header">Moody Diagram</h3>
+			<img class="resize" src="moody.jpg" alt="Moody Diagram" onclick="modalActivate('moody-diagram')"">
+		</div>
+
+		<div id="moody-diagram" class="modal">
+			<div class="modal-interior">
+					<span class="close" id="close-button" onclick="closeModal('moody-diagram')">&times;</span>
+					<img class="resize-big" src="moody.jpg" alt="Moody Diagram">
+			</div>
 		</div>
 
 		</section>
